@@ -1,3 +1,8 @@
 //
 // - - - - - - - - - - Mixins - - - - - - - - - - //
 //
+
+@mixin roundImg {
+	border: 1px solid black;
+	border-radius: 50%;
+}

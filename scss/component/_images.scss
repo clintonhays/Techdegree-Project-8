@@ -1,3 +1,10 @@
 //
 // - - - - - - - - - - Images - - - - - - - - - - //
 //
+
+.employee-img {
+	img {
+		width: 150px;
+		@include roundImg;
+	}
+}

@@ -340,7 +340,43 @@ template {
   display: none;
 }
 
+body {
+  background-color: lightgrey;
+}
+
 /* ============================================= */
 /*          Components Imports                   */
 /* ============================================= */
+body {
+  padding: 15px;
+}
+
+.directory-wrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+#card {
+  display: flex;
+  width: 80%;
+  border: 2px solid grey;
+  border-radius: 10px;
+  padding: 25px 0;
+  margin-bottom: 25px;
+  background-color: #ececec;
+}
+
+#card .avatar,
+#card .employee-email,
+#card .employee-city,
+#card .employee-name {
+  margin-left: 20px;
+}
+
+.employee-img img {
+  width: 150px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
 /*# sourceMappingURL=styles.css.map */

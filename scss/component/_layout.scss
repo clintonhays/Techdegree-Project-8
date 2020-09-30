@@ -2,10 +2,37 @@
 // - - - - - - - - - - Body - - - - - - - - - - //
 //
 
-//
-// - - - - - - - - - - Header - - - - - - - - - - //
-//
+body {
+	padding: 15px;
+}
 
 //
-// - - - - - - - - - - Message/Settings  - - - - - - - - - - //
+// - - - - - - - - - - Directory - - - - - - - - - - //
 //
+
+.directory-wrapper {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+//
+// - - - - - - - - - - Employee Cards - - - - - - - - - - //
+//
+
+#card {
+	display: flex;
+	width: 80%;
+	border: 2px solid grey;
+	border-radius: 10px;
+	padding: 25px 0;
+	margin-bottom: 25px;
+	background-color: rgb(236, 236, 236);
+
+	.avatar,
+	.employee-email,
+	.employee-city,
+	.employee-name {
+		margin-left: 20px;
+	}
+}
