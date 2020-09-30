@@ -341,6 +341,7 @@ template {
 }
 
 body {
+  position: relative;
   background-color: lightgrey;
 }
 
@@ -374,7 +375,43 @@ body {
   margin-left: 20px;
 }
 
-.employee-img img {
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.modal {
+  position: fixed;
+  width: 60%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: #ececec;
+  border-radius: 10px;
+  padding: 20px 20px;
+}
+
+.modal .close-modal {
+  position: absolute;
+  right: 30px;
+  top: 10px;
+  border: none;
+  outline: none;
+  font-size: 2em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.avatar {
   width: 150px;
   border: 1px solid black;
   border-radius: 50%;

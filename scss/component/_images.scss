@@ -2,9 +2,7 @@
 // - - - - - - - - - - Images - - - - - - - - - - //
 //
 
-.employee-img {
-	img {
-		width: 150px;
-		@include roundImg;
-	}
+.avatar {
+	width: 150px;
+	@include roundImg;
 }
