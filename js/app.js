@@ -2,9 +2,12 @@
 // - - - - - - - - - - Global Variables - - - - - - - - - - //
 //
 
+const closeTitle = document.querySelector('.close-title');
+const titleScreen = document.getElementById('title-screen');
 let employees = [];
-const urlAPI = 'https://randomuser.me/api/?inc=name,location,email,phone,dob,picture&noinfo&nat=US';
-const directory = document.getElementById('directory-wrapper');
+const urlAPI = 'https://randomuser.me/api/?results=12&inc=name,location,email,phone,dob,picture&noinfo&nat=US';
+const directory = document.querySelector('.directory');
+const directoryWrapper = document.getElementById('directory-wrapper');
 const overlay = document.querySelector('.overlay');
 const modalContent = document.querySelector('.modal-content');
 const modalClose = document.querySelector('.close-modal');
@@ -75,8 +78,8 @@ function displayModal (index) {
 // - - - - - - - - - - Event Listeners - - - - - - - - - - //
 //
 
-directory.addEventListener('click', (e) => {
-	if (e.target !== directory) {
+directoryWrapper.addEventListener('click', (e) => {
+	if (e.target !== directoryWrapper) {
 		const card = e.target.closest('.card');
 		const index = card.getAttribute('data-index');
 
@@ -87,3 +90,8 @@ directory.addEventListener('click', (e) => {
 modalClose.addEventListener('click', (e) => {
 	overlay.classList.add('hidden');
 });
+
+// closeTitle.addEventListener('click', () => {
+// 	titleScreen.classList.add('hidden');
+// 	directory.classList.remove('hidden');
+// });

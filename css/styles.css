@@ -345,14 +345,47 @@ body {
   background-color: lightgrey;
 }
 
+.title-and-button {
+  font-size: 1.5em;
+}
+
+header h1 {
+  text-align: center;
+}
+
 /* ============================================= */
 /*          Components Imports                   */
 /* ============================================= */
+.close-title {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 body {
   padding: 15px;
 }
 
-.directory-wrapper {
+#title-screen {
+  background-color: lightslategray;
+  position: absolute;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+
+#title-screen .title-and-button {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#directory-wrapper {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -360,6 +393,8 @@ body {
 
 .card {
   display: flex;
+  align-items: center;
+  width: 400px;
   border: 2px solid grey;
   border-radius: 10px;
   padding: 25px 0;
@@ -372,6 +407,10 @@ body {
 .card .employee-city,
 .card .employee-name {
   margin-left: 20px;
+}
+
+.card .employee-email {
+  display: inline-block;
 }
 
 .overlay {
@@ -411,7 +450,7 @@ body {
 }
 
 .avatar {
-  width: 150px;
+  width: 125px;
   border: 1px solid black;
   border-radius: 50%;
 }

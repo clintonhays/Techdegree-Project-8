@@ -7,10 +7,32 @@ body {
 }
 
 //
+// - - - - - - - - - - Title Screen - - - - - - - - - - //
+//
+
+#title-screen {
+	background-color: lightslategray;
+	position: absolute;
+	height: 100vh;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+
+	.title-and-button {
+		position: fixed;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+
+//
 // - - - - - - - - - - Directory - - - - - - - - - - //
 //
 
-.directory-wrapper {
+#directory-wrapper {
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
@@ -22,6 +44,8 @@ body {
 
 .card {
 	display: flex;
+	align-items: center;
+	width: 400px;
 	border: 2px solid grey;
 	border-radius: 10px;
 	padding: 25px 0;
@@ -33,6 +57,10 @@ body {
 	.employee-city,
 	.employee-name {
 		margin-left: 20px;
+	}
+
+	.employee-email {
+		display: inline-block;
 	}
 }
 
