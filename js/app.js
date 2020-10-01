@@ -21,7 +21,7 @@ fetch(urlAPI)
     .catch(err => console.log(err))
 
 //
-// - - - - - - - - - - Fetch - - - - - - - - - - //
+// - - - - - - - - - - Functions - - - - - - - - - - //
 //
 
 function displayEmployees (employeeData) {
@@ -48,4 +48,25 @@ function displayEmployees (employeeData) {
 	});
 
 	directory.innerHTML = employeeHTML;
+}
+
+function displayModal (index) {
+	let { name, dob, phone, email, location: { city, street, state, postcode }, picture } = employees[index];
+	let date = new Date(dob.date);
+	//prettier-ignore
+	const modalHTML = `
+    <img class="avatar" src="${picture.large}" alt="employee picture">
+        <div class="text-container">
+        <h2 class="employee-name">${name.first} ${name.last}</h2>
+        <p class="employee-email">${email}</p>
+        <p class="employee-city">${city}</p>
+            <hr>
+            <p>${phone}</p>
+            <p class="address">${street}${state}${postcode}</p>
+            <p>Birthday: ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
+        </div>
+    `;
+
+	overlay.classList.remove('hidden');
+	modalContent.innerHTML = modalHTML;
 }
