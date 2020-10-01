@@ -34,7 +34,7 @@ function displayEmployees (employeeData) {
 		let picture = employee.picture;
 		//prettier-ignore
 		employeeHTML += `
-        <div id="card" data-index="${index}">
+        <div class="card" data-index="${index}">
             <div class="employee-img">
                 <img class="avatar" src="${picture.large}" alt="employee picture">
             </div>
@@ -57,12 +57,12 @@ function displayModal (index) {
 	const modalHTML = `
     <img class="avatar" src="${picture.large}" alt="employee picture">
         <div class="text-container">
-        <h2 class="employee-name">${name.first} ${name.last}</h2>
+        <h2 class="employee-name">${name.first} ${name.last}</h2> 
         <p class="employee-email">${email}</p>
         <p class="employee-city">${city}</p>
             <hr>
             <p>${phone}</p>
-            <p class="address">${street}${state}${postcode}</p>
+            <p class="address">${street.number} ${street.name}, ${state} ${postcode}</p>
             <p>Birthday: ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
         </div>
     `;
@@ -70,3 +70,20 @@ function displayModal (index) {
 	overlay.classList.remove('hidden');
 	modalContent.innerHTML = modalHTML;
 }
+
+//
+// - - - - - - - - - - Event Listeners - - - - - - - - - - //
+//
+
+directory.addEventListener('click', (e) => {
+	if (e.target !== directory) {
+		const card = e.target.closest('.card');
+		const index = card.getAttribute('data-index');
+
+		displayModal(index);
+	}
+});
+
+modalClose.addEventListener('click', (e) => {
+	overlay.classList.add('hidden');
+});
