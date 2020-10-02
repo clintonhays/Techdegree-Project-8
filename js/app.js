@@ -4,6 +4,7 @@
 
 const closeTitle = document.querySelector('.close-title');
 const titleScreen = document.getElementById('title-screen');
+const search = document.getElementById('search');
 let employees = [];
 const urlAPI = 'https://randomuser.me/api/?results=12&inc=name,location,email,phone,dob,picture&noinfo&nat=US';
 const directory = document.querySelector('.directory');
@@ -50,7 +51,7 @@ function displayEmployees (employeeData) {
         `
 	});
 
-	directory.innerHTML = employeeHTML;
+	directoryWrapper.innerHTML = employeeHTML;
 }
 
 function displayModal (index) {
@@ -77,6 +78,17 @@ function displayModal (index) {
 //
 // - - - - - - - - - - Event Listeners - - - - - - - - - - //
 //
+
+search.addEventListener('keyup', (e) => {
+	const searchStr = e.target.value.toLowerCase();
+	const filteredEmployees = employees.filter((employee) => {
+		return (
+			employee.name.first.toLowerCase().includes(searchStr) ||
+			employee.name.last.toLowerCase().includes(searchStr)
+		);
+	});
+	displayEmployees(filteredEmployees);
+});
 
 directoryWrapper.addEventListener('click', (e) => {
 	if (e.target !== directoryWrapper) {

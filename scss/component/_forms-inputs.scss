@@ -2,6 +2,31 @@
 // - - - - -- - - - - Inputs - - - - - - - - - - //
 //
 
+.search-bar {
+	position: relative;
+	width: 80%;
+	margin: 0 auto;
+	margin-bottom: 25px;
+	text-align: center;
+
+	input {
+		width: 100%;
+		background-color: lightgray;
+		outline: none;
+		border: none;
+		border-bottom: 2px solid black;
+	}
+	&::after {
+		position: absolute;
+		right: 0;
+		font-family: 'Font Awesome 5 Free';
+		content: '\f002';
+		font-weight: 900;
+		font-size: .85em;
+		color: white;
+	}
+}
+
 //
 // - - - - -- - - - - Forms - - - - - - - - - - //
 //
