@@ -12,6 +12,8 @@ const directoryWrapper = document.getElementById('directory-wrapper');
 const overlay = document.querySelector('.overlay');
 const modalContent = document.querySelector('.modal-content');
 const modalClose = document.querySelector('.close-modal');
+const scrollRight = document.querySelector('.scroll-right');
+const scrollLeft = document.querySelector('.scroll-left');
 
 //
 // - - - - - - - - - - Fetch - - - - - - - - - - //
@@ -104,6 +106,10 @@ directoryWrapper.addEventListener('click', (e) => {
 
 modalClose.addEventListener('click', (e) => {
 	overlay.classList.add('hidden');
+});
+
+scrollRight.addEventListener('click', () => {
+	console.log('working');
 });
 
 // closeTitle.addEventListener('click', () => {
