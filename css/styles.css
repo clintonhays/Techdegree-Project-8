@@ -467,7 +467,7 @@ body {
   background: rgba(0, 0, 0, 0.4);
 }
 
-.modal {
+#modal {
   position: fixed;
   width: 60%;
   left: 50%;
@@ -479,7 +479,7 @@ body {
   padding: 20px 20px;
 }
 
-.modal .close-modal {
+#modal .close-modal {
   position: absolute;
   right: 30px;
   top: 10px;

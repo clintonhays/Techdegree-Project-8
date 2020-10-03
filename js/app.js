@@ -10,6 +10,7 @@ const urlAPI = 'https://randomuser.me/api/?results=12&inc=name,location,email,ph
 const directory = document.querySelector('.directory');
 const directoryWrapper = document.getElementById('directory-wrapper');
 const overlay = document.querySelector('.overlay');
+const modal = document.getElementById('modal');
 const modalContent = document.querySelector('.modal-content');
 const modalClose = document.querySelector('.close-modal');
 const scrollRight = document.querySelector('.scroll-right');
@@ -74,6 +75,7 @@ function displayModal (index) {
     `;
 
 	overlay.classList.remove('hidden');
+	modal.classList.add(`data-index="${index}"`);
 	modalContent.innerHTML = modalHTML;
 }
 
@@ -101,16 +103,19 @@ directoryWrapper.addEventListener('click', (e) => {
 		const index = card.getAttribute('data-index');
 
 		displayModal(index);
+
+		scrollRight.addEventListener('click', () => {
+			console.log(index + 1);
+		});
 	}
 });
 
-modalClose.addEventListener('click', (e) => {
+modalClose.addEventListener('click', () => {
 	overlay.classList.add('hidden');
+	modal.removeAttribute('class');
 });
 
-scrollRight.addEventListener('click', () => {
-	console.log('working');
-});
+scrollRight.addEventListener('click', (e) => {});
 
 // closeTitle.addEventListener('click', () => {
 // 	titleScreen.classList.add('hidden');
