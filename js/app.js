@@ -81,13 +81,16 @@ function displayModal (index) {
 
 search.addEventListener('keyup', (e) => {
 	const searchStr = e.target.value.toLowerCase();
-	const filteredEmployees = employees.filter((employee) => {
-		return (
-			employee.name.first.toLowerCase().includes(searchStr) ||
-			employee.name.last.toLowerCase().includes(searchStr)
-		);
+	const names = document.querySelectorAll('.card h2');
+	const searchResults = names.forEach((name) => {
+		if (!name.textContent.toLocaleLowerCase().includes(searchStr)) {
+			name.closest('.card').classList.add('hidden');
+		}
+		else if (name.textContent.toLocaleLowerCase().includes(searchStr)) {
+			name.closest('.card').classList.remove('hidden');
+		}
 	});
-	displayEmployees(filteredEmployees);
+	return searchResults;
 });
 
 directoryWrapper.addEventListener('click', (e) => {
