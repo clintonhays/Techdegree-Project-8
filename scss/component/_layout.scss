@@ -36,24 +36,27 @@
 
 .card {
 	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	align-items: center;
-	width: 400px;
+	text-align: center;
+	width: 90%;
 	border: 2px solid grey;
 	border-radius: 10px;
 	padding: 25px 0;
 	margin-bottom: 25px;
 	background-color: rgb(236, 236, 236);
 
-	.avatar,
-	.employee-email,
-	.employee-city,
-	.employee-name {
-		margin-left: 20px;
-	}
+	// .avatar,
+	// .employee-email,
+	// .employee-city,
+	// .employee-name {
+	// 	margin-left: 20px;
+	// }
 
-	.employee-email {
-		display: inline-block;
-	}
+	// .employee-email {
+	// 	display: inline-block;
+	// }
 }
 
 //
@@ -80,6 +83,14 @@
 	border-radius: 10px;
 	padding: 20px 20px;
 
+	.modal-content {
+		.text-container {
+			.employee-email {
+				overflow-wrap: break-word;
+			}
+		}
+	}
+
 	.close-modal {
 		position: absolute;
 		right: 30px;
@@ -97,7 +108,7 @@
 	font-weight: 900;
 	color: white;
 	top: 50%;
-	right: 20px;
+	right: 0px;
 	transform: translateX(-50%);
 	position: fixed;
 	cursor: pointer;
@@ -108,7 +119,7 @@
 	font-weight: 900;
 	color: white;
 	top: 50%;
-	left: 38px;
+	left: 18px;
 	transform: translateX(-50%);
 	position: fixed;
 	cursor: pointer;

@@ -342,7 +342,7 @@ template {
 
 body {
   position: relative;
-  height: 100vh;
+  height: 100%;
   background-color: lightgrey;
   padding: 15px;
 }
@@ -436,24 +436,16 @@ header h1 {
 
 .card {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 400px;
+  text-align: center;
+  width: 90%;
   border: 2px solid grey;
   border-radius: 10px;
   padding: 25px 0;
   margin-bottom: 25px;
   background-color: #ececec;
-}
-
-.card .avatar,
-.card .employee-email,
-.card .employee-city,
-.card .employee-name {
-  margin-left: 20px;
-}
-
-.card .employee-email {
-  display: inline-block;
 }
 
 .overlay {
@@ -477,6 +469,10 @@ header h1 {
   padding: 20px 20px;
 }
 
+#modal .modal-content .text-container .employee-email {
+  overflow-wrap: break-word;
+}
+
 #modal .close-modal {
   position: absolute;
   right: 30px;
@@ -493,7 +489,7 @@ header h1 {
   font-weight: 900;
   color: white;
   top: 50%;
-  right: 20px;
+  right: 0px;
   transform: translateX(-50%);
   position: fixed;
   cursor: pointer;
@@ -504,7 +500,7 @@ header h1 {
   font-weight: 900;
   color: white;
   top: 50%;
-  left: 38px;
+  left: 18px;
   transform: translateX(-50%);
   position: fixed;
   cursor: pointer;
