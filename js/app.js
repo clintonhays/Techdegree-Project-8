@@ -20,6 +20,7 @@ const scrollLeft = document.querySelector('.scroll-left');
 //
 
 // prettier-ignore
+// Fetch api and display employee info in grid
 fetch(urlAPI)
     .then(res => res.json())
     .then(res => res.results)
@@ -30,15 +31,27 @@ fetch(urlAPI)
 // - - - - - - - - - - Functions - - - - - - - - - - //
 //
 
+/**
+ * inserts html based on fetched employee data
+ * 
+ * @param {employeeData} employeeData - an array of objects from Fetch
+ * create employeeHTML to be inserted into grid  
+ */
+
 function displayEmployees (employeeData) {
+	// set empty employees array to the employeeData array
 	employees = employeeData;
+	// initialize empty template literal to hold html markup
 	employeeHTML = ``;
+	// loop over each object in the employees array
 	employees.forEach((employee, index) => {
+		// assign variables to the object
 		let name = employee.name;
 		let email = employee.email;
 		let city = employee.location.city;
 		let picture = employee.picture;
-		//prettier-ignore
+		// add html markup to variable
+		// prettier-ignore
 		employeeHTML += `
         <div class="card" data-index="${index}">
             <div class="employee-img">
@@ -52,14 +65,24 @@ function displayEmployees (employeeData) {
         </div>
         `
 	});
-
+	// insert the markup
 	directoryWrapper.innerHTML = employeeHTML;
 }
 
+/**
+ * 
+ * @param {index} index - index of the employee card
+ * create modal to be displayed when card is clicked 
+ * display overly
+ * insert modal content
+ */
+
 function displayModal (index) {
+	// initialize varibles to hold object properties using deconstruction
 	let { name, dob, phone, email, location: { city, street, state, postcode }, picture } = employees[index];
 	let date = new Date(dob.date);
-	//prettier-ignore
+	// create modal markup
+	// prettier-ignore
 	const modalHTML = `
     <img class="avatar" src="${picture.large}" alt="employee picture">
         <div class="text-container">
@@ -72,7 +95,7 @@ function displayModal (index) {
             <p>Birthday: ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
         </div>
     `;
-
+	// display overlay & insert modal content
 	overlay.classList.remove('hidden');
 	modalContent.innerHTML = modalHTML;
 }
@@ -81,51 +104,59 @@ function displayModal (index) {
 // - - - - - - - - - - Event Listeners - - - - - - - - - - //
 //
 
+// Search functionality
 search.addEventListener('keyup', (e) => {
+	// initialize variables for input value, and employee names array
 	const searchStr = e.target.value.toLowerCase();
 	const names = document.querySelectorAll('.card h2');
+	// loop over each name in the array
 	const searchResults = names.forEach((name) => {
+		// if the name does not include the value, the card is hidden
 		if (!name.textContent.toLocaleLowerCase().includes(searchStr)) {
 			name.closest('.card').classList.add('hidden');
 		}
 		else if (name.textContent.toLocaleLowerCase().includes(searchStr)) {
+			// if the name does include value, the card is displayed
 			name.closest('.card').classList.remove('hidden');
 		}
 	});
+	// returns the results of the search
 	return searchResults;
 });
 
+// modal display functionality
 directoryWrapper.addEventListener('click', (e) => {
+	// make sure the target is a card or inside the card
 	if (e.target !== directoryWrapper) {
+		// declare variables to access the index of each card
 		const card = e.target.closest('.card');
 		let index = card.getAttribute('data-index');
 
+		// display the modal information for the card with matching index
 		displayModal(index);
 
-		let currentIndex = index;
-
+		// scroll forward through modals
 		scrollRight.addEventListener('click', () => {
-			if (currentIndex < employees.length - 1) {
-				currentIndex++;
-				displayModal(currentIndex);
+			// display the modal with index + 1
+			if (index < employees.length - 1) {
+				index++;
+				displayModal(index);
 			}
 		});
 
+		//scroll back through modals
 		scrollLeft.addEventListener('click', () => {
-			if (currentIndex > 0) {
-				currentIndex--;
-				displayModal(currentIndex);
+			// display the modal with index - 1
+			if (index > 0) {
+				index--;
+				displayModal(index);
 			}
 		});
 	}
 });
 
+// close modal
 modalClose.addEventListener('click', () => {
+	// hide overlay
 	overlay.classList.add('hidden');
-	modal.removeAttribute('class');
 });
-
-// closeTitle.addEventListener('click', () => {
-// 	titleScreen.classList.add('hidden');
-// 	directory.classList.remove('hidden');
-// });
