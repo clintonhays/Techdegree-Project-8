@@ -443,7 +443,7 @@ header h1 {
   width: 90%;
   border: 2px solid grey;
   border-radius: 10px;
-  padding: 25px 0;
+  padding: 5px 0;
   margin-bottom: 25px;
   background-color: #ececec;
 }
@@ -514,5 +514,35 @@ header h1 {
   width: 125px;
   border: 1px solid black;
   border-radius: 50%;
+}
+
+@media (min-width: 500px) {
+  .card {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .employe-img {
+    width: 30%;
+    text-align: center;
+  }
+  .employee-info {
+    width: 60%;
+  }
+  .employee-email,
+  .employee-city,
+  .employee-name {
+    margin-left: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .card {
+    width: 47%;
+    padding-left: 5px;
+  }
+  .employee-email {
+    overflow-wrap: break-word;
+    width: 85%;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

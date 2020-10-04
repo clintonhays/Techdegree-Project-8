@@ -1,3 +1,37 @@
 //
 // - - - - - - - - - - Media Queries - - - - - - - - - - //
 //
+
+@media (min-width: $sm) {
+	.card {
+		flex-direction: row;
+		justify-content: space-around;
+	}
+
+	.employe-img {
+		width: 30%;
+		text-align: center;
+	}
+
+	.employee-info {
+		width: 60%;
+	}
+
+	.employee-email,
+	.employee-city,
+	.employee-name {
+		margin-left: 20px;
+	}
+}
+
+@media (min-width: $med) {
+	.card {
+		width: 47%;
+		padding-left: 5px;
+	}
+
+	.employee-email {
+		overflow-wrap: break-word;
+		width: 85%;
+	}
+}
