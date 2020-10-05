@@ -6,21 +6,17 @@
 	.card {
 		flex-direction: row;
 		justify-content: space-around;
+		padding: 20px 0;
 	}
 
-	.employe-img {
+	.employee-img {
+		display: flex;
 		width: 30%;
-		text-align: center;
 	}
 
 	.employee-info {
 		width: 60%;
-	}
-
-	.employee-email,
-	.employee-city,
-	.employee-name {
-		margin-left: 20px;
+		text-align: left;
 	}
 }
 
@@ -30,8 +26,40 @@
 		padding-left: 5px;
 	}
 
+	.avatar {
+		width: 100px;
+	}
+
 	.employee-email {
 		overflow-wrap: break-word;
-		width: 85%;
+	}
+}
+
+@media (min-width: $lg) {
+	.card {
+		width: 30%;
+
+		.avatar {
+			width: 75px;
+		}
+
+		.employee-info {
+			h2 {
+				font-size: 1.2em;
+			}
+		}
+	}
+}
+
+@media (min-width: $xl) {
+	.card {
+		.avatar {
+			width: 150px;
+			margin-left: 10px;
+		}
+
+		.employee-info {
+			margin-left: 50px;
+		}
 	}
 }

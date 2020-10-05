@@ -6,7 +6,7 @@ const closeTitle = document.querySelector('.close-title');
 const titleScreen = document.getElementById('title-screen');
 const search = document.getElementById('search');
 let employees = [];
-const urlAPI = 'https://randomuser.me/api/?results=12&inc=name,location,email,phone,dob,picture&noinfo&nat=US';
+const urlAPI = 'https://randomuser.me/api/?results=12&inc=name,location,phone,dob,picture&noinfo&nat=US';
 const directory = document.querySelector('.directory');
 const directoryWrapper = document.getElementById('directory-wrapper');
 const overlay = document.querySelector('.overlay');
@@ -47,7 +47,6 @@ function displayEmployees (employeeData) {
 	employees.forEach((employee, index) => {
 		// assign variables to the object
 		let name = employee.name;
-		let email = employee.email;
 		let city = employee.location.city;
 		let picture = employee.picture;
 		// add html markup to variable
@@ -59,7 +58,7 @@ function displayEmployees (employeeData) {
             </div>
             <div class="employee-info">
                 <h2 class="employee-name">${name.first} ${name.last}</h2>
-                <p class="employee-email">${email}</p>
+                <p class="employee-email">${name.first.slice(0,1)}${name.last}@example.com</p>
                 <p class="employee-city">${city}</p>
             </div>
         </div>
