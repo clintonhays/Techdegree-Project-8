@@ -366,8 +366,20 @@ input[type="search"]::-webkit-search-results-decoration {
   display: none;
 }
 
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.brand-name {
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+  font-style: italic;
+}
+
 .title-and-button {
   font-size: 1.5em;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 200;
 }
 
 header h1 {
@@ -380,8 +392,14 @@ header h1 {
 .close-title {
   border: none;
   outline: none;
+  padding: 10px;
   border-radius: 5px;
   cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+.close-title:hover {
+  transform: scale(1.1);
 }
 
 .search-bar {
@@ -419,6 +437,7 @@ header h1 {
   bottom: 0;
   left: 0;
   text-align: center;
+  z-index: 10;
 }
 
 #title-screen .title-and-button {
@@ -426,6 +445,10 @@ header h1 {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+#main-wrapper {
+  transform: translateY(100%);
 }
 
 #directory-wrapper {
@@ -485,6 +508,7 @@ header h1 {
   position: absolute;
   right: 30px;
   top: 10px;
+  background-color: transparent;
   border: none;
   outline: none;
   font-size: 2em;

@@ -5,6 +5,12 @@
 .close-title {
 	border: none;
 	outline: none;
+	padding: 10px;
 	border-radius: 5px;
 	cursor: pointer;
+	transition: all 0.3s ease-out;
+
+	&:hover {
+		transform: scale(1.1);
+	}
 }

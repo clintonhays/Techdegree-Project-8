@@ -4,21 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/df7a70b2bd.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&family=Raleway:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <title>Awesome Startup</title>
 </head>
 <body>
-    
-    <header>
-        <h1>Awesome Startup Employee Directory</h1>
-    </header>
-
-    <div class="search-bar">
-        <input type="search" name="search" id="search" placeholder="Search">
+    <div id="title-screen">
+        <div class="title-and-button">
+            <h1>Welcome to <span class="brand-name">Awesome Startup</span>!</h1>
+            <h2>Click below for the employee directory.</h2>
+            <button type="submit" class="close-title">Directory</button>
+        </div>
     </div>
 
-    <main id="directory-wrapper">
-    </main>
+    <div id="main-wrapper" class="hidden">
+        <header>
+            <h1><span class="brand-name">Awesome Startup</span> Employee Directory</h1>
+        </header>
+
+        <div class="search-bar">
+            <input type="search" name="search" id="search" placeholder="Search">
+        </div>
+
+        <main id="directory-wrapper">
+        </main>
+    </div>
     <div class="overlay hidden">
         <div id="modal">
             <button class="close-modal">&times;</button>

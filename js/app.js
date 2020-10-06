@@ -4,6 +4,7 @@
 
 const closeTitle = document.querySelector('.close-title');
 const titleScreen = document.getElementById('title-screen');
+const main = document.getElementById('main-wrapper');
 const search = document.getElementById('search');
 let employees = [];
 const urlAPI = 'https://randomuser.me/api/?results=12&inc=name,location,phone,dob,picture&noinfo&nat=US';
@@ -58,7 +59,7 @@ function displayEmployees (employeeData) {
             </div>
             <div class="employee-info">
                 <h2 class="employee-name">${name.first} ${name.last}</h2>
-                <p class="employee-email">${name.first.slice(0,1)}${name.last}@example.com</p>
+                <p class="employee-email">${name.first.toLowerCase().slice(0,1)}${name.last.toLowerCase()}@example.com</p>
                 <p class="employee-city">${city}</p>
             </div>
         </div>
@@ -86,7 +87,7 @@ function displayModal (index) {
     <img class="avatar" src="${picture.large}" alt="employee picture">
         <div class="text-container">
         <h2 class="employee-name">${name.first} ${name.last}</h2> 
-        <p class="employee-email">${email}</p>
+        <p class="employee-email">${name.first.toLowerCase().slice(0,1)}${name.last.toLowerCase()}@example.com</p>
         <p class="employee-city">${city}</p>
             <hr>
             <p>${phone}</p>
@@ -103,6 +104,21 @@ function displayModal (index) {
 // - - - - - - - - - - Event Listeners - - - - - - - - - - //
 //
 
+closeTitle.addEventListener('click', () => {
+	titleScreen.animate([ { transform: 'translateY(-100%)' } ], {
+		duration : 800,
+		easing   : 'ease-in',
+		fill     : 'forwards'
+	});
+	main.animate([ { transform: 'translateY(0)' } ], {
+		duration : 800,
+		easing   : 'ease-in',
+		fill     : 'forwards'
+	});
+	main.classList.remove('hidden');
+	closeTitle.classList.add('hidden');
+});
+
 // Search functionality
 search.addEventListener('keyup', (e) => {
 	// initialize variables for input value, and employee names array
@@ -111,10 +127,10 @@ search.addEventListener('keyup', (e) => {
 	// loop over each name in the array
 	const searchResults = names.forEach((name) => {
 		// if the name does not include the value, the card is hidden
-		if (!name.textContent.toLocaleLowerCase().includes(searchStr)) {
+		if (!name.textContent.toLowerCase().includes(searchStr)) {
 			name.closest('.card').classList.add('hidden');
 		}
-		else if (name.textContent.toLocaleLowerCase().includes(searchStr)) {
+		else if (name.textContent.toLowerCase().includes(searchStr)) {
 			// if the name does include value, the card is displayed
 			name.closest('.card').classList.remove('hidden');
 		}
