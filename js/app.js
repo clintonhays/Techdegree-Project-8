@@ -104,6 +104,7 @@ function displayModal (index) {
 // - - - - - - - - - - Event Listeners - - - - - - - - - - //
 //
 
+// hide title screen
 closeTitle.addEventListener('click', () => {
 	titleScreen.animate([ { transform: 'translateY(-100%)' } ], {
 		duration : 800,
@@ -116,6 +117,7 @@ closeTitle.addEventListener('click', () => {
 		fill     : 'forwards'
 	});
 	main.classList.remove('hidden');
+	// hide title screen button on mobile screen sizes
 	closeTitle.classList.add('hidden');
 });
 
